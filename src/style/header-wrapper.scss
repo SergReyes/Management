@@ -1,4 +1,4 @@
-.header{
+.header {
     grid-row: header-s/header-e;
     grid-column: content-s/content-e;
 
@@ -25,7 +25,7 @@
         line-height: 3rem;
     }
     &__subtitle {
-        color: $color-red-ba;
+        color: $color-red-BA;
         font-size: 1.6rem;
         font-weight: 300;
         line-height: 2rem;

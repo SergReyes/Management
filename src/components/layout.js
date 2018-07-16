@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import {Header, Bar} from './header';
+
+import { Header, HeaderBar } from './header';
 
 class Layout extends Component {
     render() {
         return (
-          <div className="layout-grid">
-            <Header/>
-            <Bar/>
-            {this.props.children}
+            <div className='layout-grid'>
+                <Header/>
+                <HeaderBar/>
+                {this.props.children}
             </div>
         )
     }
