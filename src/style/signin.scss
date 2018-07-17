@@ -9,13 +9,28 @@
 
     &__title{
         width:100%;
+        margin-top:6.6rem;
     }
 
     &__email{
-
+        margin-top:7.7em;
     }
 
     &__password{
+        margin-top:4em;
+    }
 
+    &__login{
+        margin-top:8.8rem;
+    }
+
+    &__text-links{
+        margin-top:5.2rem;
+        
+    }
+
+    &__email,
+    &__password {
+        transform: translateX(-64.5px);
     }
 }
