@@ -1,16 +1,18 @@
 import { AUTHENTICATE_USER } from '../actions/types';
 
-const AUTHENTICATE_USER ={
+const INITIAL_STATE ={
     authenticated: false,
     user: []
 }
 
-export default function(state = [], action) {
+export default function(state = INITIAL_STATE, action) {
+    console.log(action.payload);
     switch (action.type) {
         case AUTHENTICATE_USER:
         const { user } = action.payload;
         return{
             ...state,
+            authenticaled:true,
             user
         }
 
