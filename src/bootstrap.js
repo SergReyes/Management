@@ -8,17 +8,20 @@ import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
 
+// import 'bootstrap/dist/css/bootstrap.css';
 import './style/main.scss';
+
+import history from './history';
 
 import Layout from './components/layout';
 
+// AUTH
+import requireAuth from './components/requireAuth';
 import Signup from './components/auth/signup';
 import Signin from './components/auth/signin';
-import history from './history';
-import requireAuth from './components/requireAuth';
+
+// DASHBOARD
 import Dashboard from './components/dashboard';
-
-
 
 function main() {
   ReactDOM.render(
