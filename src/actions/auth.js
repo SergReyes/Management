@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { ROOT_URL } from '../config';
-import { STORE_USER } from './types';
+import { AUTHENTICATE_USER } from './types';
 
 export function signUp(fields, success) {
     return function(dispatch) {
@@ -11,7 +11,7 @@ export function signUp(fields, success) {
             localStorage.setItem('token', token);
             localStorage.getItem('token');
             dispatch({
-            type: STORE_USER,
+            type: AUTHENTICATE_USER,
             payload: response.data})
             success();
 
@@ -26,12 +26,10 @@ export function signIn(fields, success){
     return function(dispatch){
         axios.post(`${ROOT_URL}/signIn`, fields)
         .then(response => {
-            console.log(repsonse.data)
             const { token } = response.data;
             localStorage.setItem('token', token);
-            localStorage.getItem('token');
             dispatch({
-            type: STORE_USER,
+            type: AUTHENTICATE_USER,
             payload: response.data
         })
             success();
@@ -39,7 +37,7 @@ export function signIn(fields, success){
         })
 
         .catch(err => {
-            if(err){console.log(error)}
+            if(err) {console.log(err)}
         })
     
     }

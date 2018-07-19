@@ -9,7 +9,7 @@ class Tabnav extends Component {
         {
             this.props.tabs.map((tab, index) => {
                 const className= `tab-nav__tab ${tab.active ? `tab-nav__active`: ''}`
-                return <a onCLick={() => this.props.handleClick(tab.title)} className={className}> {tab.title} </a>
+                return <a key={index} onClick={() => this.props.handleClick(tab.title)} className={className}> {tab.title} </a>
             })
         }
         </div>

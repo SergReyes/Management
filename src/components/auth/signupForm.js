@@ -48,7 +48,7 @@ class SignupForm extends Component {
         <Field
         className="sign-up-form__create-account"
           name="createaccount"
-          type="button"
+          type="submit"
           title="Create Account"
           component={FormButton}
         />

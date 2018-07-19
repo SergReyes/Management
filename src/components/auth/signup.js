@@ -25,4 +25,4 @@ class Signup extends Component {
     }
 }
 
-export default connvect(null, actions)(signUp);
+export default connect(null, actions)(Signup);
