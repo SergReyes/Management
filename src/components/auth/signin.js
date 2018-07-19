@@ -1,8 +1,8 @@
+
 import React, { Component } from 'react';
-import  { connect } from 'react-redux';
+import { connect } from 'react-redux'; 
 
 import * as actions from '../../actions';
-
 
 import SigninForm from './signinForm';
 
@@ -14,11 +14,9 @@ class Signin extends Component {
         })
     }
 
-
     render() {
         return (
             <div className='sign-in'>
-                
                 <SigninForm onSubmit={(event) => this.onSubmit(event)}/>
             </div>
         )

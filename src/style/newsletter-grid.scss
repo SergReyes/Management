@@ -1,6 +1,12 @@
 .newsletter-grid{
     grid-row: content-s/content-e;
     display:grid;
+    justify-content: center;
     grid-template-rows: [s box-s] 16rem [box-e archive-s] 1fr [archive-e e];
-    grid-template-columns: [box-s archive-s] 16rem [box-e newsletter-s] 1fr [newsletter-e];
+    grid-template-columns: [box-s archive-s] 16rem [box-e archive-e latest-s] 960px [latest-e];
+    
+    margin-top: 4.7rem;
+
+    grid-row-gap: 3.85rem;
+    grid-column-gap: 6.1rem;
 }
