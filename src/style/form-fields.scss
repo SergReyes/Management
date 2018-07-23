@@ -1,10 +1,10 @@
 .form-input{
     display:grid;
         grid-template-rows: 1fr;
-        grid-template-columns: 129px 500px;
+        grid-template-columns: 3fr 10fr;
 
         align-items:center;
-        width: 629px;
+        width: 100%;
         justify-content:center;
 
     &__title{
@@ -18,22 +18,50 @@
     }
 }
 
-.form-input{
+.form-input,
+.textarea{
     &__title{
-        color:$color-red-BA;
-        font-size: 1.8rem;
-        font-weight: 500; 
-        line-height:2.3rem;
+        @include red-title;
     }
 
     &__input{
         height: 4rem;
-        width: 50rem;
+        // width: 50rem;
+        width:100%;
         border: 1px solid $color-gray-E6;
         border-radius: .5rem;
         padding-left: 2rem;
         font-size: 1.6rem;
         font-weight: 500;
+    }
+}
+
+.form-textarea{
+    
+    &__title{
+        align-self:start;
+    }
+    &__input{
+        height:355px;
+        resize: none;
+        padding-top: 1rem;
+
+    }
+}
+
+.form-button,
+.form-button-small,
+.form-image{
+    &__button,
+    &__replace{
+        transition: all .2s ease;
+        &:focus{
+            outline:none;
+            
+        }
+        &:active{
+            transform: scale(.95) translateY(2.05px);
+        }
     }
 }
 
@@ -49,5 +77,72 @@
         font-weight:500;
         text-align:center;
 
+    }
+}
+
+.form-button-small{
+    
+    &__button{
+    border: 1px solid $color-gray-4D;
+    height: 2.4rem;
+
+    font-size: 14px;
+    line-height: 17px;
+    text-align:center;
+
+    justify-content: center;
+    align-items:center;
+    width:13rem;
+
+    }
+
+    &__danger{
+        border: 1px solid $color-red-BA;
+        color: white;
+        background-color: $color-red-BA;
+    }
+}
+
+.form-image{
+    display: grid;
+    grid-template-rows: [title-s] 1fr [title-e image-s] 13.7rem [image-e];
+    grid-template-columns:[s] 16rem [e];
+
+    & > *{
+        grid-column: s/e;
+    }
+
+    &__title{
+        @include red-title;
+        margin-bottom:2rem;
+        grid-row: title-s/title-e;
+        
+    }
+
+    &__image{
+        width:160px;
+        height: 137px;
+        border:none;
+        background-color:lightgray;
+        grid-row:image-s/image-e;
+    }
+
+    &__replace{
+        border: 1px solid white;
+        background-color: white;
+        height: 2.4rem;
+    
+        font-size: 14px;
+        line-height: 17px;
+        text-align:center;
+    
+        justify-content: center;
+        align-items:center;
+        width:13rem;
+        color: $color-red-BA;
+
+        grid-row: image-s/image-e;
+        justify-self:center;
+        align-self:center
     }
 }
