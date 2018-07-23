@@ -4,10 +4,11 @@ import NewNewsletterForm from './newsletterNewForm'
 
 class NewNewsletter extends Component{
 
+    onSubmit = (fields) => {
+        this.props.history.push('/dashboard')
+    }
+
     onCancel = () => {
-       if(button == 'cancel'){
-           
-       }
        this.props.history.push('/dashboard')
     }
 

@@ -125,6 +125,7 @@
         border:none;
         background-color:lightgray;
         grid-row:image-s/image-e;
+        object-fit: cover;
     }
 
     &__replace{
