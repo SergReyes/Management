@@ -15,7 +15,11 @@ class NewNewsletter extends Component{
     render(){
         return(
             <div className="new-newsletter">
-                <NewNewsletterForm onCancel={(event) => this.onCancel()} onSubmit={(event) => this.onSubmit}/>
+                <NewNewsletterForm 
+                onCancel={(event) => this.onCancel()} o
+                nSubmit={(event) => this.onSubmit}
+                formTitle='New Newsletter'
+                />
             </div>
         )
     }
