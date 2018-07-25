@@ -7,6 +7,8 @@ class Requests extends Component{
         return(
             <div className='requests'>
                 <RequestsItem/>
+                <RequestsItem/>
+                <RequestsItem/>
             </div>
         )
     }
