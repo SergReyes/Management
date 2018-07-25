@@ -5,7 +5,9 @@ class RequestsBoxes extends Component{
     render(){
         return(
             <div className='requests-boxes'>
-                <RequestsBox title={'pending'} count={2}/>
+                <RequestsBox title={'Pending'} count={5}/>
+                <RequestsBox title={'In-Progess'} count={2}/>
+                <RequestsBox title={'Complete'} count={1}/>
             </div>
         )
     }
