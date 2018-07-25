@@ -28,12 +28,20 @@ class NewsLetterGrid extends Component {
         return(
             <div className='newsletter-grid'>
                 <Button className="newsletter-grid__button" icon="fas fa-plus" callback={() =>this.handleAddnewsletter()}/>
-                <NewsletterBox/>
+                <NewsletterBox {...this.props.latestNewsletter}/>
                 <ArchiveItem/>
-                <NewsletterLatest history={this.props.history} {...latest}/>
+                <NewsletterLatest {...this.props.latestNewsletter}/>
             </div>
         )
     }
 }
 
-export default connect(null, actions)(NewsLetterGrid);
+function mapStateToProps(state){
+    const {newsletters} = state.newsletters;
+    const latestNewsletter = newsletters[0];
+    return{
+        latestNewsletter
+    }
+}
+
+export default connect(mapStateToProps, actions)(NewsLetterGrid);
