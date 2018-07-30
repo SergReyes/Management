@@ -12,15 +12,44 @@
     grid-template-rows: [s] 8.1rem [m] 2.3rem [e];
     grid-template-columns: [s] 1fr [e];
 
-    
+    &:hover{
+        border-color: $color-red-BA;
+        background-color: white;
+        .requests-box__point{
+            display:none;
+        }
+        .requests-box__count{
+            transform: translateX(100);
+            opacity: 0;
+        }
+        .requests-box__icon{
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .requests-box__title{
+            color: $color-red-BA;
+        }
+    }
 
-    &__count{
-        font-size:7rem;
+    &__count,
+    &__icon{
+        transition: all .15s ease;
+
+        font-size: 7rem;
         line-height: 8.1rem;
         
-        margin-bottom:1rem;
+        margin-bottom: 1rem;
         grid-row:s/m;
         grid-column:s/e;
+
+        transform: translateX(0);
+    }
+
+    &__icon{
+        opacity: 0;
+        font-size: 5rem;
+
+        transform: translateX(-100);
     }
 
     &__title{

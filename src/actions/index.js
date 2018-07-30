@@ -1,7 +1,28 @@
 import { signUp, signIn } from './auth';
 
-import{fetchNewsletters, fetchNewsletterWithId} from './newsletter';
+import{fetchNewsletters, fetchNewsletterWithId, createNewNewsletter, EditNewsletter} from './newsletter';
 
-import {changeSelectedRequestType} from './requests';
+import {
+    changeSelectedRequestType, 
+    createNewRequest, 
+    fetchRequests, 
+    changeStatus,
+} from './requests';
 
-export { signUp, signIn, fetchNewsletters, fetchNewsletterWithId, changeSelectedRequestType};
+import {
+    updateHeader
+}
+from './header';
+
+export { signUp,
+    signIn, 
+    fetchNewsletters, 
+    fetchNewsletterWithId, 
+    changeSelectedRequestType, 
+    createNewRequest, 
+    fetchRequests, 
+    changeStatus,
+    createNewNewsletter,
+    EditNewsletter,
+    updateHeader
+};

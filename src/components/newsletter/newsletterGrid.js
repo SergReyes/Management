@@ -5,6 +5,7 @@ import NewsletterBox from './newsletterBox';
 import ArchiveItem from './newsletterArchive';
 import NewsletterLatest from './newsletterLatest';
 import Button from '../button';
+import RequireAdmin from '../auth/requireAdmin';
 
 class NewsLetterGrid extends Component {
 
@@ -21,7 +22,9 @@ class NewsLetterGrid extends Component {
     render(){
         return(
             <div className='newsletter-grid'>
-                <Button className="newsletter-grid__button" icon="fas fa-plus" callback={() =>this.handleAddnewsletter()}/>
+                <RequireAdmin>
+                  <Button className="newsletter-grid__button" icon="fas fa-plus" callback={() =>this.handleAddnewsletter()}/>
+                </RequireAdmin>
                 <NewsletterBox {...this.props.latestNewsletter}/>
                 <ArchiveItem/>
                 <NewsletterLatest {...this.props.latestNewsletter}/>

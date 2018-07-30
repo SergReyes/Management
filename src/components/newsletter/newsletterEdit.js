@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import NewNewsletterForm from './newsletterNewForm';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
+import EditNewsletterForm from './newsletterEditForm';
 
 
 class EditNewsletter extends Component{
 
-    onSubmit = (fields) => {
-        this.props.history.push('/dashboard')
+    onSubmit = fields => {
+        const { title, body, image } = fields;
+
+        var formData = new FormData();
+        formData.append('title', title);
+        formData.append('body', body);
+        formData.append('image', image);
+        
+        this.props.EditNewsletter(this.props.match.params.id, formData, () => {
+            this.props.history.push('/dashboard');
+        })
+
     };
 
     onCancel = () => {
@@ -21,21 +31,17 @@ class EditNewsletter extends Component{
     render(){
         return(
             <div className="new-newsletter">
-                <NewNewsletterForm 
-                newsletterToEdit={this.props.newsletterToEdit} 
-                onCancel={(event) => this.onCancel()} 
-                onSubmit={(event) => this.onSubmit}
-                formTitle='Edit Newsletter'/>
+                <EditNewsletterForm
+                onCancel={() => this.onCancel()} 
+                onSubmit={(event) => this.onSubmit(event)}
+                formTitle='Edit Newsletter'
+                fieldOneTitle='Newsletter Title'
+                fieldTwoTitle='Body'
+
+                />
             </div>
         );
     }
 }
 
-function mapStateToProps(state){
-    const { newsletterToEdit} = state.newsletters;
-    return{
-        newsletterToEdit
-    }
-}
-
-export default connect(mapStateToProps, actions)(EditNewsletter);
+export default connect(null, actions)(EditNewsletter);

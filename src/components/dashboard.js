@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 import TabNav from './tabnav';
 import NewsletterGrid from "./newsletter/newsletterGrid";
 import RequestGrid from "./requests/requestGrid";
 
 class Dashboard extends Component {
+
+    componentDidMount(){
+        this.props.updateHeader(`Welcome ${this.props.name}`, 'HOA Management', true);
+    }
 
     constructor(props) {
         super(props);
@@ -49,4 +55,10 @@ class Dashboard extends Component {
 
 }
 
-export default Dashboard;
+function mapStateToProps(state){
+    return{
+        name: state.auth.user.fullname
+    }
+}
+
+export default connect(mapStateToProps, actions)(Dashboard);

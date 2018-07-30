@@ -11,6 +11,7 @@ class RequestsBox extends Component {
                 <div className="requests-box__count">{count}</div>
                 <div className="requests-box__title">{title}</div>
                 <div className="requests-box__point"></div>
+                <i className={`${icon} requests-box__icon`}></i>
             </a>
     )
     }

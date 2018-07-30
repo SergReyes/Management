@@ -25,6 +25,8 @@ import Dashboard from './components/dashboard';
 import NewNewsletter from './components/newsletter/newsletterNew';
 import NewsletterDetail from './components/newsletter/newsletterDetail';
 
+import NewRequest from './components/requests/requestNew';
+
 function main() {
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
@@ -36,11 +38,12 @@ function main() {
             <Route path='/signup' component={Signup}/>
 
             <Route path='/dashboard' component={requireAuth(Dashboard)}/>
+            
             <Route path='/newsletter/new' component={requireAuth(NewNewsletter)}/>
             <Route path='/newsletter/edit/:id' component={requireAuth(EditNewNewsletter)}/>
             <Route path='/newsletter/detail/:id' component={requireAuth(NewsletterDetail)}/>
 
-            <Route path='/request/new' component={requireAuth(NewNewsletter)}/>
+            <Route path='/request/new' component={requireAuth(NewRequest)}/>
           </Layout>
         </Switch>
       </Router>

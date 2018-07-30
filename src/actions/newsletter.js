@@ -3,30 +3,22 @@ import {
     FETCH_NEWSLETTER_ID
 } from './types';
 
+import axios from 'axios';
+import { ROOT_URL } from '../config';
+
 export function fetchNewsletters() {
 
-    const response = {
-        data:[
-            {
-            _id: '794',
-            title: 'Happy Holidays',
-            body: 'words words and lots of words',
-            date: new Date(),
-            imageUrl: 'https://via.placeholder.com/960x258'
-            },
-            {
-            _id: '793',
-            title: 'Second Newsletter',
-            body: 'words words and lots of words',
-            date: new Date(),
-            imageUrl: 'https://via.placeholder.com/960x258'
-            }
-        ]
-    }
 
-    return{
-        type: SET_NEWSLETTERS,
-        payload: Response.data
+    return function(){
+        var token = localStorage.getItem('token');
+        const headers = {headers: {authorization: token}}
+        axios.get(`${ROOT_URL}/newsletters`, headers)
+        .then(response => {
+
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 }
 
@@ -35,4 +27,44 @@ export function fetchNewsletterWithId(id){
         type: FETCH_NEWSLETTER_ID,
         payload: id
     }
+}
+
+export function createNewNewsletter(formData, success){
+    const token = localStorage.getItem('token')
+    return function(){
+        axios.post(`${ROOT_URL}/newsletters/new`, formData, {
+            headers:{
+                'Content-Type': 'multipart/form-data',
+                authorization: token
+            }
+        })
+        .then(response => {
+            console.log(response.data);
+            success();
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+}
+
+export function EditNewsletter(itemId, formData, success){
+    const token = localStorage.getItem('token');
+    const id = itemId;
+    return function(){
+        axios.post(`${ROOT_URL}/newsletters/edit/${id}`, formData, {
+        headers:{            
+            'Content-Type': 'multipart/form-data',
+            authorization: token
+            }
+        })
+        .then(response => {
+            response.data;
+            success();
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
 }

@@ -7,6 +7,9 @@ import * as actions from '../../actions';
 import SigninForm from './signinForm';
 
 class Signin extends Component {
+    componentDidMount(){
+        this.props.updateHeader('Welcome to HOA Manager!', 'Please login to continue', false);
+    }
 
     onSubmit = (fields) => {
         this.props.signIn(fields, () => {
