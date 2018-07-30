@@ -25,7 +25,7 @@ import Dashboard from './components/dashboard';
 import NewNewsletter from './components/newsletter/newsletterNew';
 import NewsletterDetail from './components/newsletter/newsletterDetail';
 
-import NewRequest from './components/requests/requestNew';
+import NewRequest from './components/requests/requestsNew';
 
 function main() {
   ReactDOM.render(

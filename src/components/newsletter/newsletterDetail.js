@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
 import NewsletterBox from './newsletterBox';
-import NewsletterDetail from './newsletterLatest';
+import NewsletterLatest from './newsletterLatest';
 import {FormTitle} from '../formTitle';
 import { formButton } from '../formFields';
 

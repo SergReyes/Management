@@ -5,7 +5,7 @@ import AnimateHeight from 'react-animate-height';
 import { ROOT_URL } from '../../config';
 import RequireAdmin from '../auth/requireAdmin';
 
-import Icon from '../icon';
+import Icon from '../Icon';
 import Button from '../button';
 
 class requestsItem extends Component{
