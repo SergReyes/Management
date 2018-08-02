@@ -42,6 +42,7 @@ class NewRequest extends Component{
 }
 function mapStateToProps(state) {
     const { _id } = state.auth.user;
+    return { _id }
 }
 
 NewRequest = connect(mapStateToProps, actions)(NewRequest)

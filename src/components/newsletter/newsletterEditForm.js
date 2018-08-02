@@ -21,7 +21,7 @@ class EditNewsletterForm extends Component {
 
     return (
       <form onSubmit={handleSubmit} className="new-newsletter-form">
-        <FormTitle className="new-newsletter__title" text={title} />
+        <FormTitle className="new-newsletter__title" text={formTitle} />
         <Field
             className="new-newsletter-form__-newsletter-title"
             placeholder={fieldOnePLaceholder}
@@ -35,7 +35,7 @@ class EditNewsletterForm extends Component {
             placeholder={fieldTwoPlaceholder}
             name="body"
             type="text"
-            title={fieldOneTitle}
+            title={fieldTwoTitle}
             component={FormTextArea} 
         />
         <Field
@@ -54,7 +54,7 @@ class EditNewsletterForm extends Component {
             type="button"
             title="Cancel"
             component={FormButton}
-            onClick={this.props.onClick}
+            onClick={this.props.onCancel}
         />
         <Field
             className="new-newsletter-form__image"

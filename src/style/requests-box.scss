@@ -1,63 +1,65 @@
-.requests-box{   
-    height:16rem;
-    width:16rem;
+.requests-box {
+    align-content: center;
+
+    height: 16rem;
+    width: 16rem;
     border: .15rem solid $color-red-BA;
     border-radius: .5rem;
+
     color: $color-red-BA;
 
-    display:grid;
-    justify-items:center;
-    
-    align-content:center;
+    display: grid;
+    justify-items: center;
     grid-template-rows: [s] 8.1rem [m] 2.3rem [e];
     grid-template-columns: [s] 1fr [e];
 
-    &:hover{
+    &:hover {
         border-color: $color-red-BA;
         background-color: white;
-        .requests-box__point{
-            display:none;
+        .requests-box__point {
+            display: none;
         }
-        .requests-box__count{
-            transform: translateX(100);
+        .requests-box__count {
+            transform: translateX(100px);
             opacity: 0;
         }
-        .requests-box__icon{
+        .requests-box__icon {
             transform: translateX(0);
             opacity: 1;
         }
-        .requests-box__title{
+        .requests-box__title {
             color: $color-red-BA;
         }
     }
 
     &__count,
-    &__icon{
-        transition: all .15s ease;
+    &__icon {
+        transition: all .3s ease;
 
+        align-self: end;
         font-size: 7rem;
         line-height: 8.1rem;
-        
         margin-bottom: 1rem;
-        grid-row:s/m;
-        grid-column:s/e;
+
+        grid-row: s/m;
+        grid-column: s/e;
 
         transform: translateX(0);
     }
 
-    &__icon{
+    &__icon {
+        transform: translateX(-100px);
         opacity: 0;
         font-size: 5rem;
-
-        transform: translateX(-100);
     }
 
-    &__title{
+    &__title {
+        align-self: start;
         font-size: 2rem;
         line-height: 2.3rem;
-        
+
         grid-row: m/e;
-        grid-column:s/e;
+        grid-column: s/e;
     }
 
     &__point {
@@ -69,38 +71,41 @@
 
         justify-self: end;
         align-self: center;
-        border: .15rem solid $color-red-BA;
-        border-bottom:none;
-        border-left:none;
+
         transform: translateX(52%) rotate(45deg);
+
+        border: .15rem solid $color-red-BA;
+        border-bottom: none;
+        border-left: none;
     }
 }
 
-.requests-box-active{
+
+.requests-box-active {
     background-color: $color-red-BA;
     border-color: $color-red-BA;
-    
-    .requests-box{
+
+    .requests-box {
         &__title,
-        &__count{
+        &__count {
             color: white;
         }
-        &__point{
+        &__point {
             background-color: $color-red-BA;
             border-color: $color-red-BA;
         }
     }
 }
 
-.requests-box-inactive{
+.requests-box-inactive {
     border-color: $color-gray-E6;
 
-    .requests-box{
+    .requests-box {
         &__title,
-        &__count{
+        &__count {
             color: $color-gray-4D;
         }
-        &__point{
+        &__point {
             display: none;
         }
     }

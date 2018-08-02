@@ -1,5 +1,6 @@
-import { 
-    SET_NEWSLETTERS, FETCH_NEWSLETTER_ID 
+import {
+    SET_NEWSLETTERS,
+    FETCH_NEWSLETTER_ID
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -11,22 +12,22 @@ export default function(state = INITIAL_STATE, action) {
     switch (action.type) {
         case SET_NEWSLETTERS:
             const newsletters = action.payload;
-            return{
+            return {
                 ...state,
                 newsletters
-        }
-        case FETCH_NEWSLETTER_ID:
-        var newsletterID = action.payload;
-        state.newsletters.map(newsletter => {
-            if(newsletter._id == newsletterID){
-                newsletterToEdit = newsletter;
             }
-        })
-        return{
-            ...state,
-            newsletterToEdit
-        }
+        case FETCH_NEWSLETTER_ID:
+            const newsletterID = action.payload;
+            var newsletterToEdit = {};
+            state.newsletters.map(newsletter => {
+                if(newsletter._id == newsletterID) {
+                    newsletterToEdit = newsletter;
+                }
+            })
+            return {
+                ...state,
+                newsletterToEdit
+            }
         default: return state;
     }
 }
-

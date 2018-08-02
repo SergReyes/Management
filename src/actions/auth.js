@@ -6,16 +6,16 @@ import { AUTHENTICATE_USER } from './types';
 export function signUp(fields, success) {
 
     // Admin Privileges 
-    // var newFields = {
-    //     admin: true
-    // }
-    // newFields = {
-    //     ...fields,
-    //     ...newFields
-    // }
+    var newFields = {
+        admin: true
+    }
+    newFields = {
+        ...fields,
+        ...newFields
+    }
 
     return function(dispatch) {
-        axios.post(`${ROOT_URL}/signUp`, fields)
+        axios.post(`${ROOT_URL}/signUp`, newFields)
         .then(response => {
             const { token } = response.data;
             localStorage.setItem('token', token);

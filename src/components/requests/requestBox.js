@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import Icon from '../Icon';
 
 class RequestsBox extends Component {
     render(){
@@ -11,7 +12,7 @@ class RequestsBox extends Component {
                 <div className="requests-box__count">{count}</div>
                 <div className="requests-box__title">{title}</div>
                 <div className="requests-box__point"></div>
-                <i className={`${icon} requests-box__icon`}></i>
+                <i className={`${Icon} requests-box__icon`}></i>
             </a>
     )
     }

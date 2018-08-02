@@ -16,7 +16,7 @@ class NewNewsletter extends Component{
         formData.append('body', body);
         formData.append('image', image);
         
-        this.props.createNewRequest(formData, () => {
+        this.props.createNewNewsletter(formData, () => {
             this.props.history.push('/dashboard');
         })
 
@@ -30,8 +30,8 @@ class NewNewsletter extends Component{
         return(
             <div className="new-newsletter">
                 <NewNewsletterForm 
-                onCancel={(event) => this.onCancel()} 
-                onSubmit={(event) => this.onSubmit}
+                onCancel={() => this.onCancel()} 
+                onSubmit={(event) => this.onSubmit(event)}
                 formTitle='New Newsletter'
                 fieldOnePlaceholder='Newsletter Title'
                 fieldOneTitle='Newsletter Title'

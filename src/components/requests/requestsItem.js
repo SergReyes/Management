@@ -58,7 +58,7 @@ class requestsItem extends Component{
                     <Icon callback={() => this.toggleDropdown()} className='requests-item__title__arrow' icon='fas fas-dort-down'/>
                 </div>
                 <div className='requests-item__tenant-unit'>
-                    {}
+                    {this.props.fullname} - Unit {this.props.unit}
                 </div>
 
                 
@@ -92,6 +92,13 @@ class requestsItem extends Component{
     }
 }
 
-requestsItem = connect(null, actions)(requestsItem)
+function mapStateToProps(state) {
+    const { fullname, unit } = state.auth.user;
+    return {
+        fullname,
+        unit
+    }
+}
+ requestsItem = connect(mapStateToProps, actions)(requestsItem);
 
 export default requestsItem;
